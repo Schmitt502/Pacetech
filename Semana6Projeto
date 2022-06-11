@@ -1,0 +1,104 @@
+# Pacetech
+Repositório do curso introdução a programação - Pacetech
+package ProjetoSemana6;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        String respostaFinal;
+        String opcaoMenu1;
+        String opcaoMenu2;
+        String opcaoPrincipal;
+
+        Scanner leitorScanner = new Scanner(System.in);
+
+        System.out.println("Olá! O que voce deseja converter ?");
+        System.out.println("1 - Moedas");
+        System.out.println("2 - Temperatura");
+        System.out.println("3 - Sair");
+        opcaoPrincipal = leitorScanner.next();
+
+        switch (opcaoPrincipal) {
+
+            case "1":
+                float quantiaReal;
+                float quantiaDolar;
+                float cotacao;
+                float dolar;
+                float real;
+
+                System.out.println("Por favor informe a cotação do Dolar: ");
+                cotacao = leitorScanner.nextFloat();
+                System.out.println("Qual tipo de conversão voce deseja realizar? ");
+                System.out.println("1 - Real para Dolar ");
+                System.out.println("2 - Dolar para Real ");
+                System.out.println("3 - Sair");
+                opcaoMenu1 = leitorScanner.next();
+
+                switch (opcaoMenu1) {
+                    case "1":
+                        System.out.println("Digite a quantia em reais : ");
+                        quantiaReal = leitorScanner.nextFloat();
+                        dolar = quantiaReal / cotacao;
+                        System.out.println("A quantia em Dolar é :" + dolar);
+                        break;
+                    case "2":
+                        System.out.println("Digite a quantia em Dolar : ");
+                        dolar = leitorScanner.nextFloat();
+                        dolar = dolar * cotacao;
+                        System.out.println("A quantia em Dolar é :" + dolar + "Reais");
+                        break;
+                    case "3":
+                        System.out.println("Até a proxima!");
+                        break;
+                    default:
+                        System.out.println("Informação invalida");
+                }
+
+            case "2":
+                float fahrenheit;
+                float celcius;
+                System.out.println("Qual tipo de conversão voce deseja realizar? ");
+                System.out.println("1 - Celcius para Fahrenheit");
+                System.out.println("2 - Fahrenheit para Celcius");
+                System.out.println("3 - Sair");
+                opcaoMenu2 = leitorScanner.next();
+
+                switch (opcaoMenu2) {
+                    case "1": {
+                        System.out.println("Infiorme a Temperatura em Celcius");
+                        celcius = leitorScanner.nextFloat();
+                        fahrenheit = (float) ((1.8 * celcius) + 32);
+                        System.out.println("A temperatura em Fahrenheit é :" + fahrenheit);
+                       break; 
+                    }
+
+                    case "2": {
+                        System.out.println("Infiorme a Temperatura em Fahrenheit");
+                        fahrenheit = leitorScanner.nextFloat();
+                        celcius = (float) ((fahrenheit - 32) / 1.8);
+                        System.out.println("A temperatura em Celcius é : " + celcius);
+                        
+                    }
+                    case "3": {
+                        System.out.println("Até a proxima!");
+                        break;
+                    }
+                    default:
+                        System.out.println("Informação invalida");
+                }
+
+            case "3": {
+                System.out.println("Até a proxima!");
+                break;
+            }
+            default:
+                System.out.println("Resposta invalida!");
+
+        }
+
+    }
+
+}
